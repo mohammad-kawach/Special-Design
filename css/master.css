@@ -1,0 +1,253 @@
+:root {
+  --main-color: #FF9800;
+}
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  width: 1170px;
+  padding: 0 15px;
+  margin: auto;
+}
+/* Start Settings Box */
+.settings-box {
+  position: fixed;
+  left: -200px;
+  top: 0;
+  background-color: #fff;
+  width: 200px;
+  min-height: 100vh;
+  z-index: 1000;
+  transition: .3s;
+}
+
+.settings-box.open {
+  left: 0;
+}
+
+.settings-box .toggle-settings {
+  position: absolute;
+  right: -30px;
+  top: 100px;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.settings-box .toggle-settings .fa-gear {
+  width: 30px;
+  padding: 8px 0;
+}
+
+.settings-box .settings-container .option-box {
+  padding: 10px;
+  text-align: center;
+  background-color: #EEE;
+  margin: 10px;
+}
+
+.settings-box .settings-container .option-box h4 {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.settings-box .settings-container .option-box .colors-list {
+  list-style: none;
+  align-items: center;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0 0;
+}
+
+.settings-box .settings-container .option-box .colors-list li {
+  width: 24px;
+  height: 24px;
+  background: #000;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+
+.settings-box .settings-container .option-box .colors-list li.active {
+  border: 3px solid #FFF;
+}
+
+.settings-box .settings-container .option-box .colors-list li:first-child {
+  background-color: #FF9800;
+}
+
+.settings-box .settings-container .option-box .colors-list li:nth-child(2) {
+  background-color: #E91E63;
+}
+
+.settings-box .settings-container .option-box .colors-list li:nth-child(3) {
+  background-color: #009688;
+}
+
+.settings-box .settings-container .option-box .colors-list li:nth-child(4) {
+  background-color: #03A9F4;
+}
+
+.settings-box .settings-container .option-box .random-backgrounds {
+  display: flex;
+  justify-content: space-around;
+}
+
+.settings-box .settings-container .option-box .colors-list li:last-child {
+  background-color: #4CAF50;
+}
+
+.settings-box .settings-container .option-box .yes,
+.settings-box .settings-container .option-box .no {
+  width: 50px;
+  background-color: #009688;
+  color: #FFF;
+  margin-top: 10px;
+  font-size: 12px;
+  padding: 4px 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  opacity: .5;
+  cursor: pointer;
+}
+
+.settings-box .settings-container .option-box .random-backgrounds span.active {
+  opacity: 1;
+}
+
+.settings-box .settings-container .option-box .random-backgrounds .yes {
+
+}
+
+.settings-box .settings-container .option-box .random-backgrounds .no {
+
+}
+/* End Settings Box */
+
+/* Start Landing Page */
+.landing-page {
+  min-height: 100vh;
+  background-image: url('../imgs/01.jpg');
+  background-size: cover;
+  position: relative;
+}
+
+.landing-page .overlay {
+  background-color: rgba(0, 0, 0, .6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.landing-page .header-area {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.landing-page .header-area .logo {
+  width: 300px;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.landing-page .header-area .links {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding-right: 15px;
+  font-size: 15px;
+}
+
+.landing-page .header-area .links li {
+  margin-left: 15px;
+}
+
+.landing-page .header-area .links li a {
+  color: #fff;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.landing-page .header-area .links li a:hover,
+.landing-page .header-area .links li a.active {
+  color: var(--main-color);
+}
+
+.landing-page .introduction-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+}
+
+.landing-page .introduction-text h1 {
+  font-size: 34px;
+  margin: 0 0 12px;
+  width: 100%;
+}
+
+.landing-page .introduction-text h1 span {
+  color: var(--main-color);
+  margin: 0;
+}
+
+.landing-page .introduction-text p {
+  line-height: 1.6;
+  font-size: 20px;
+}
+/* End Landing Page */
+/* Start About Us */
+.about-us {
+  padding: 50px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-us .info-box {
+  flex: 1;
+  padding: 30px;
+}
+
+.about-us .info-box h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin: 0 0 20px;
+}
+
+.about-us .info-box p {
+  line-height: 1.8;
+  color: #767676;
+  margin: 0;
+}
+
+.about-us .img-box {
+  flex: 1;
+  text-align: center;
+}
+
+.about-us .img-box img {
+  width: 250px;
+}
+/* End About Us */
