@@ -9,7 +9,7 @@ let myInterval = setInterval(() => {
   let randomNumber = Math.floor(Math.random() * imgsArray.length);
   // Change background image url
   landingPage.style.backgroundImage = `url("imgs/${imgsArray[randomNumber]}")`;
-}, 2500);
+}, 5000);
 
 if (mainColors !== null) {
   document.documentElement.style.setProperty("--main-color", mainColors);
@@ -165,3 +165,84 @@ window.onscroll = function () {
     });
   }
 };
+
+// create popup with the image
+let ourGallery = document.querySelectorAll(".gallery img");
+
+ourGallery.forEach(img => {
+  img.addEventListener('click', (e) => {
+    // create overlay element
+    let overlay = document.createElement("div");
+
+    // add class to overlay
+    overlay.className = "popup-overlay";
+
+    // append overlay to the body
+    document.body.appendChild(overlay);
+
+    // Create The popup
+    let popupbox = document.createElement("div");
+
+    // Add class to the popup box
+    popupbox.className = "popup-box";
+
+    if (img.alt !== null) {
+      // create heading
+      let imgHeading = document.createElement("h3");
+
+      // create text for heading
+      let imgText = document.createTextNode(img.alt);
+
+      // append the text tp the heading
+      imgHeading.appendChild(imgText);
+
+      // appendt he heading to the popup box
+      popupbox.appendChild(imgHeading);
+    }
+
+    // create span containing close button
+    let closeSpan = document.createElement("span");
+
+    // create the close icon
+    //let closeButton = document.createElement("i");
+
+    // add font awesome close icon to the button
+    closeSpan.classList.add("fa");
+    closeSpan.classList.add("fa-close");
+
+    // append icon to span
+    //closeSpan.appendChild(closeButton);
+
+    // add class to span close button
+    //closeButton.className = "close-button";
+    closeSpan.classList.add("close-button");
+
+    // add close button to the popus box
+    popupbox.appendChild(closeSpan);
+
+    // Create the image
+    let popupImage = document.createElement("img");
+    
+    // set image src
+    popupImage.src = img.src;
+
+    // add image to popup box
+    popupbox.appendChild(popupImage);
+
+    // append the popup box to the body
+    document.body.appendChild(popupbox);
+
+  });
+});
+
+// close popup
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("close-button")) {
+    // remove the current popup
+    //console.log(e.target.parentElement);
+    e.target.parentElement.remove();
+
+    // remove overlay
+    document.querySelector(".popup-overlay").remove();
+  }
+});
