@@ -135,6 +135,37 @@ body {
 }
 /* End Settings Box */
 
+/* Start Nav Bullets */
+.nav-bullets {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  z-index: 1000;
+}
+
+.nav-bullets .bullet {
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--main-color);
+  margin: 10px auto;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-bullets .bullet .tooltip {
+  background-color: var(--main-color);
+  width: 120px;
+  color: #FFF;
+  padding: 4px 10px;
+  position: absolute;
+  right: 40px;
+  top: -6px;
+}
+/* End Nav Bullets */
+
 /* Start Landing Page */
 .landing-page {
   min-height: 100vh;
@@ -309,7 +340,6 @@ body {
 
 .gallery h2 {
   font-weight: bold;
-  font-weight: bold;
   font-size: 30px;
   color: var(--main-color);
   margin: 0 0 20px;
@@ -376,3 +406,259 @@ body {
   border-radius: 50%;
 }
 /* End Gallery */
+
+/* Start Timeline */
+.timeline {
+  padding: 50px 0;
+  background-color: #EEE;
+}
+
+.timeline .timeline-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline .timeline-content::before {
+  content: "";
+  width: 2px;
+  height: 100%;
+  background-color: var(--main-color);
+  position: absolute;
+  left: 50%;
+  margin-left: -1px;
+  top: 0;
+}
+
+.timeline .timeline-content .year {
+  margin: 20px auto;
+  width: 50px;
+  background-color: var(--main-color);
+  position: relative;
+  z-index: 2;
+  border-radius: 4px;
+  text-align: center;
+  color: #FFF;
+  padding: 2px 5px;
+  font-weight: bold;
+}
+
+.timeline .timeline-content .left,
+.timeline .timeline-content .right {
+  width: calc(50% - 25px);
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.timeline .timeline-content .left::before,
+.timeline .timeline-content .right::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background-color: #FFF;
+  border: 3px solid var(--main-color);
+  position: absolute;
+  border-radius: 50%;
+  top: 20px;
+}
+
+.timeline .timeline-content .left::before {
+  right: -35px;
+}
+
+.timeline .timeline-content .right::before {
+  left: -35px;
+}
+
+.timeline .timeline-content .left {
+  float: left;
+}
+
+.timeline .timeline-content .right {
+  float: right;
+}
+
+.timeline .timeline-content .content {
+  padding: 20px;
+  background-color: #FFF;
+  border-radius: 5px;
+}
+
+.timeline .timeline-content .content h3 {
+  font-weight: bold;
+  color: var(--main-color);
+  margin: 0 0 10px;
+}
+
+.timeline .timeline-content .content p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.timeline .timeline-content .left .content::before,
+.timeline .timeline-content .right .content::before {
+  content: "";
+  border-style: solid;
+  border-width: 10px;
+  
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 20px;
+}
+
+.timeline .timeline-content .left .content::before {
+  right: -20px;
+  border-color: transparent transparent transparent #FFF;
+}
+
+.timeline .timeline-content .right .content::before {
+  left: -20px;
+  border-color: transparent #FFF transparent transparent;
+}
+/* End Timeline */
+/* Start Features */
+.features {
+  padding: 80px 0;
+}
+
+.features h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin: 0 0 60px;
+  text-align: center;
+}
+
+.features .all-feat {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.features .all-feat .feat-box {
+  text-align: center;
+}
+
+.features .all-feat .feat-box img {
+  width: 96px;
+}
+
+.features .all-feat .feat-box h4 {
+  font-size: 22px;
+  margin: 15px 0 40px;
+  position: relative;
+}
+
+.features .all-feat .feat-box h4::before {
+  content: "";
+  width: 40px;
+  height: 4px;
+  background-color: var(--main-color);
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  bottom: -22px;
+  border-radius: 5px;
+}
+
+.features .all-feat .feat-box p {
+  width: 80%;
+  margin: 0 auto;
+  line-height: 1.7;
+  color: #767676;
+}
+/* End Features */
+/* Start Testimonials */
+.testimonials {
+  padding: 60px 0 80px 0;
+  position: relative;
+}
+
+.testimonials::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  left: 0;
+  top: 0;
+  background-color: var(--main-color);
+  height: 100%;
+}
+
+.testimonials::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  right: 0;
+  top: 0;
+  background-color: #333;
+  height: 100%;
+}
+
+.testimonials h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: #FFF;
+  margin: 0 0 60px;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonials .testimonials-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.testimonials .ts-box {
+  position: relative;
+  z-index: 2;
+  float: left;
+  background-color: #FFF;
+  padding: 20px;
+}
+
+.testimonials .ts-box:not(:last-of-type) {
+  margin-left: 1%;
+}
+
+.testimonials .ts-box > p {
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+  font-size: 18px;
+  color: #777;
+  font-style: italic;
+}
+
+.testimonials .ts-box .person-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.testimonials .ts-box .person-info img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.testimonials .ts-box .person-info .main-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.testimonials .ts-box .person-info h4 {
+  margin: 0 0 15px 0;
+}
+
+.testimonials .ts-box .person-info p {
+  color: #777;
+  margin: 0;
+}
+/* End Testimonials */
