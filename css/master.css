@@ -28,6 +28,7 @@ body {
   min-height: 100vh;
   z-index: 1000;
   transition: .3s;
+  border: 1px solid #EEE;
 }
 
 .settings-box.open {
@@ -99,7 +100,8 @@ body {
   background-color: #03A9F4;
 }
 
-.settings-box .settings-container .option-box .random-backgrounds {
+.settings-box .settings-container .option-box .random-backgrounds,
+.settings-box .settings-container .option-box .testing-option {
   display: flex;
   justify-content: space-around;
 }

@@ -38,13 +38,7 @@ colorsLi.forEach((li) => {
     // set color on local storage
     localStorage.setItem("color_option", e.target.dataset.color);
 
-    // remove active class from all
-    e.target.parentElement.querySelectorAll(".active").forEach((element) => {
-      element.classList.remove("active");
-    });
-
-    // add active class
-    e.target.classList.add("active");
+    handleActive(e);
   });
 });
 
@@ -85,12 +79,7 @@ if (backgroundLocationItem !== null) {
 randomBackEl.forEach((span) => {
   // Click On Every Span
   span.addEventListener("click", (e) => {
-    e.target.parentElement.querySelectorAll(".active").forEach((element) => {
-      element.classList.remove("active");
-    });
-
-    // Add Active Class On Self
-    e.target.classList.add("active");
+    handleActive(e);
 
     if (e.target.dataset.background === "yes") {
       myInterval = setInterval(() => {
@@ -247,15 +236,30 @@ document.addEventListener("click", function(e) {
   }
 });
 
-// select all bullets
-const allBullets = document.querySelectorAll(".nav-bullets .bullet");
-
-allBullets.forEach(bullet => {
-  console.log(bullet.dataset.section);
-  bullet.addEventListener("click", (e) => {
-    
-    document.querySelector(e.target.dataset.section).scrollIntoView({
-      behavior: "smooth"
+function scrollToAnyWhere(elements) {
+  elements.forEach(el => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector(e.target.dataset.section).scrollIntoView({
+        behavior: "smooth"
+      });
     });
   });
-});
+}
+
+// select all bullets and trigger the scrollToAnyWhere() function
+scrollToAnyWhere(document.querySelectorAll(".nav-bullets .bullet"), "section");
+
+// select all Links and trigger the scrollToAnyWhere() function
+scrollToAnyWhere(document.querySelectorAll(".links a"), "section");
+
+// handle active state
+function handleActive(ev) {
+  // remove active class from all childrens
+  ev.target.parentElement.querySelectorAll(".active").forEach((element) => {
+    element.classList.remove("active");
+  });
+
+  // Add Active Class On Self
+  ev.target.classList.add("active");
+}
