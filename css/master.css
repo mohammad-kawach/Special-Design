@@ -18,6 +18,11 @@ body {
   padding: 0 15px;
   margin: auto;
 }
+
+.active {
+  color: var(--main-color);
+  opacity: 1 !important;
+}
 /* Start Settings Box */
 .settings-box {
   position: fixed;
@@ -126,6 +131,11 @@ body {
 
 .settings-box .settings-container .option-box .random-backgrounds span.active {
   opacity: 1;
+}
+
+.bullets-option {
+  display: flex;
+  justify-content: space-around;
 }
 
 .settings-box .settings-container .option-box .random-backgrounds .yes {

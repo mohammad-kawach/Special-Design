@@ -53,14 +53,11 @@ let backgroundLocationItem = localStorage.getItem("background_option");
 
 // check if random background local storage is not empty
 if (backgroundLocationItem !== null) {
-  console.log("Not Empty");
-  // console.log(backgroundLocationItem);
   if (backgroundLocationItem === 'true') {
     backgroundLocationItem = true;
   } else {
     backgroundLocationItem = false;
   }
-  console.log(backgroundLocationItem);
 
   // remove active class from all spans
   document.querySelectorAll(".random-backgrounds span").forEach(element => {
@@ -95,7 +92,6 @@ randomBackEl.forEach((span) => {
     } else {
       backgroundOption = false;
       clearInterval(myInterval);
-      console.log(backgroundInterval);
       localStorage.setItem("background_option", false);
     }
   });
@@ -109,7 +105,6 @@ if (mainColors !== null) {
     if (element.dataset.color === mainColors) {
       // Add Active Class
       element.classList.add("active");
-      // console.log(element);
     }
   });
 }
@@ -228,7 +223,6 @@ ourGallery.forEach(img => {
 document.addEventListener("click", function(e) {
   if (e.target.classList.contains("close-button")) {
     // remove the current popup
-    //console.log(e.target.parentElement);
     e.target.parentElement.remove();
 
     // remove overlay
@@ -263,3 +257,40 @@ function handleActive(ev) {
   // Add Active Class On Self
   ev.target.classList.add("active");
 }
+
+
+let bulletsContainer  = document.querySelector(".nav-bullets");
+let bulletsSpan       = document.querySelectorAll(".bullets-option span");
+let bulletLocalItem   = localStorage.getItem("bullets_option");
+
+if (bulletLocalItem !== null) {
+  bulletsSpan.forEach(span => {
+    span.classList.remove("active");
+  });
+
+  if (bulletLocalItem === "block") {
+    bulletsContainer.style.display = 'block';
+
+    document.querySelector(".bullets-option .yes").classList.add("active");
+  } else if (bulletLocalItem === "none") {
+    bulletsContainer.style.display = 'none';
+
+    document.querySelector(".bullets-option .no").classList.add("active");
+  }
+}
+
+bulletsSpan.forEach(span => {
+  span.addEventListener("click", (e) => {
+    if (span.dataset.display == 'show') {
+      bulletsContainer.style.display = 'block';
+
+      localStorage.setItem("bullets_option", "block");
+    } else if (span.dataset.display == 'hide') {
+      bulletsContainer.style.display = 'none';
+
+      localStorage.setItem("bullets_option", "none");
+    }
+
+    handleActive(e);
+  });
+});
