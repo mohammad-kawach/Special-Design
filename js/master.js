@@ -294,3 +294,13 @@ bulletsSpan.forEach(span => {
     handleActive(e);
   });
 });
+
+// reset button
+document.querySelector(".reset-options").onclick = function() {
+  // localStorage.clear();
+  localStorage.removeItem("bullets_option");
+  localStorage.removeItem("color_option");
+  localStorage.removeItem("background_option");
+
+  window.location.reload();
+};
